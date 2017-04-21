@@ -1,122 +1,102 @@
-[
-  {
-    "year": "1930",
+{
+  "1930": {
     "country": "Uruguay",
     "teams": "13",
     "champion": "Uruguay"
   },
-  {
-    "year": "1934",
+  "1934": {
     "country": "Italy",
     "teams": "16",
     "champion": "Italy"
   },
-  {
-    "year": "1938",
+  "1938": {
     "country": "France",
     "teams": "15",
     "champion": "Italy"
   },
-  {
-    "year": "1950",
+  "1950": {
     "country": "Brazil",
     "teams": "13",
     "champion": "Uruguay"
   },
-  {
-    "year": "1954",
+  "1954": {
     "country": "Switzerland",
     "teams": "16",
     "champion": "Germany"
   },
-  {
-    "year": "1958",
+  "1958": {
     "country": "Sweden",
     "teams": "16",
     "champion": "Brazil"
   },
-  {
-    "year": "1962",
+  "1962": {
     "country": "Chile",
     "teams": "16",
     "champion": "Brazil"
   },
-  {
-    "year": "1966",
+  "1966": {
     "country": "England",
     "teams": "16",
     "champion": "England"
   },
-  {
-    "year": "1970",
+  "1970": {
     "country": "Mexico",
     "teams": "16",
     "champion": "Brazil"
   },
-  {
-    "year": "1974",
+  "1974": {
     "country": "Germany",
     "teams": "16",
     "champion": "Germany"
   },
-  {
-    "year": "1978",
+  "1978": {
     "country": "Argentina",
     "teams": "16",
     "champion": "Argentina"
   },
-  {
-    "year": "1982",
+  "1982": {
     "country": "Spain",
     "teams": "24",
     "champion": "Italy"
   },
-  {
-    "year": "1986",
+  "1986": {
     "country": "Mexico",
     "teams": "24",
     "champion": "Argentina"
   },
-  {
-    "year": "1990",
+  "1990": {
     "country": "Italy",
     "teams": "24",
     "champion": "Germany"
   },
-  {
-    "year": "1994",
+  "1994": {
     "country": "USA",
     "teams": "24",
     "champion": "Brazil"
   },
-  {
-    "year": "1998",
+  "1998": {
     "country": "France",
     "teams": "32",
     "champion": "France"
   },
-  {
-    "year": "2002",
+  "2002": {
     "country": "Corea/Japan",
     "teams": "32",
     "champion": "Brazil"
   },
-  {
-    "year": "2006",
+  "2006": {
     "country": "Germany",
     "teams": "32",
     "champion": "Italy"
   },
-  {
-    "year": "2010",
+  "2010": {
     "country": "South Africa",
     "teams": "32",
     "champion": "Spain"
   },
-  {
-    "year": "2014",
+  "2014": {
     "country": "Brazil",
     "teams": "32",
     "champion": "Germany"
   }
-]
+}

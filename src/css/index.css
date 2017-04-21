@@ -1,20 +1,86 @@
-.svg-container {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: #254e77;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+.charts__item {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #3b7196;
+  border-radius: 10px;
+  background-color: #5294b5;
+  box-shadow: 1px 1px 4px 0 #3b7196;
+}
+
+.charts__title {
+  margin-top: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.charts__container {
   position: relative;
-  min-width: 620px;
-  max-width: 1200px;
-  height: 620px;
+  padding-bottom: 50%;
   overflow: hidden;
 }
 
-.svg-content {
+.charts__svg {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-@media screen and (min-width: 621px) {
-  .svg-container {
-    height: auto;
-    padding-bottom: 100%;
+@media screen and (min-width: 1200px) {
+  .charts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
+
+  .charts__item {
+    width: calc(50% - 10px);
+  }
+}
+
+/* Styles for charts */
+
+#chart-teams .bar {
+  fill: #254e77;
+  transition: all 0.1s ease-in-out;
+}
+
+#chart-teams .bar:hover {
+  fill: #bf360c;
+}
+
+#chart-teams .bar text {
+  text-anchor: middle;
+  font-size: 12px;
+  fill: #fff;
+  opacity: 0;
+  transition: all 0.1s ease-in-out;
+}
+
+#chart-teams .bar:hover text {
+  opacity: 1;
+}
+
+#chart-teams .axis text {
+  font-size: 12px;
+  fill: #fff;
+}
+
+#chart-teams .axis path,
+#chart-teams .axis line {
+  fill: none;
+  stroke: #fff;
 }
