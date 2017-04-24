@@ -1,6 +1,9 @@
 import * as d3 from 'd3';
+import d3Tip from "d3-tip";
 import data from '../data.json';
 import { getEntities, getColor } from './helpers';
+
+d3.tip = d3Tip;
 
 export default (width, height, entity) => {
   const chartData = getEntities(data, entity);
@@ -25,7 +28,21 @@ export default (width, height, entity) => {
     .outerRadius(radius);
 
   const pie = d3.pie()
-    .value(d => d.times);
+    .value(d => d.years.length);
+
+  // tooltip
+  const tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .direction('se')
+    .offset([-75, -100])
+    .html(d => {
+      return `<strong>${d.data.entity}, ${d.value} times:</strong>
+        <ul>
+          ${d.data.years.map(year => `<li>${year}</li>`).join('')}
+        </ul>`;
+    });
+
+  chart.call(tip);
 
   const arcs = group.selectAll('.arc')
     .data(pie(chartData))
@@ -34,11 +51,7 @@ export default (width, height, entity) => {
 
   arcs.append('path')
     .attr('d', arc)
-    .attr('fill', d => color(d.data.entity));
-
-  arcs.append('text')
-    .attr('transform', d => `translate(${arc.centroid(d)})`)
-    .attr('text-anchor', 'middle')
-    .attr('font-size', '1.5em')
-    .text(d => `${d.data.entity}, ${d.value} times`);
+    .attr('fill', d => color(d.data.entity))
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide);
 }

@@ -90,23 +90,11 @@ body {
 
 #chart-teams .bar {
   fill: #254e77;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 #chart-teams .bar:hover {
   fill: #bf360c;
-}
-
-#chart-teams .bar text {
-  text-anchor: middle;
-  font-size: 12px;
-  fill: #fff;
-  opacity: 0;
-  transition: all 0.1s ease-in-out;
-}
-
-#chart-teams .bar:hover text {
-  opacity: 1;
 }
 
 .charts__svg text,
@@ -123,20 +111,34 @@ body {
 
 .charts__svg .arc {
   opacity: 0.8;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .charts__svg .arc:hover {
   opacity: 1;
 }
 
-#chart-champions text,
-#chart-continents text {
-  opacity: 0;
-  transition: all 0.1s ease-in-out;
+/* d3-tip styles */
+.d3-tip {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #039be5;
+  box-shadow: 1px 1px 4px 0 #333;
+  transition: opacity 0.3s ease-in-out;
 }
 
-#chart-champions .arc:hover text,
-#chart-continents .arc:hover text {
-  opacity: 1;
+.d3-tip.with-triangle::after {
+  content: '\25BC';
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  line-height: 1;
+  color: #039be5;
+  text-shadow: 0 2px 2px #333;
+}
+
+.d3-tip ul {
+  margin-bottom: 0;
 }

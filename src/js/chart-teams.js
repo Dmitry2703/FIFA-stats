@@ -1,5 +1,8 @@
 import * as d3 from 'd3';
+import d3Tip from "d3-tip";
 import data from '../data.json';
+
+d3.tip = d3Tip;
 
 const getWindowWidth = () => window.innerWidth;
 
@@ -49,6 +52,13 @@ export default () => {
   const inner = chart.append('g')
     .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
+  const tip = d3.tip()
+    .attr('class', 'd3-tip with-triangle')
+    .offset([-20, 0])
+    .html(d => `${d.teams} teams`);
+
+  chart.call(tip);
+
   // x axis
   inner.append('g')
     .attr('class', 'axis axis-x')
@@ -69,13 +79,9 @@ export default () => {
   bar.append('rect')
     .attr('y', d => yScale(d.teams))
     .attr('width', xScale.bandwidth())
-    .attr('height', d => innerHeight - yScale(d.teams));
-
-  bar.append('text')
-    .attr('x', xScale.bandwidth() / 2)
-    .attr('y', d => yScale(d.teams) + 3)
-    .attr('dy', '-10px')
-    .text(d => d.teams);
+    .attr('height', d => innerHeight - yScale(d.teams))
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide);
 
   let resizeTimeout;
 

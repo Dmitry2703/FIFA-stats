@@ -9,7 +9,9 @@ export const getEntities = (data, entity) => {
 
   const dataForChart = Object.keys(entities).map(key => ({
     entity: key,
-    times: entities[key],
+    years: data
+      .filter(item => item[entity] === key)
+      .map(item => item.year),
   }));
 
   return dataForChart;
