@@ -12,6 +12,31 @@ body {
   color: #fff;
 }
 
+.header {
+  padding: 20px 0;
+}
+
+.header__title {
+  margin: 0;
+}
+
+.header__title svg {
+  display: block;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 620px) {
+  .header__title {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .header__title svg {
+    margin: 0;
+  }
+}
+
 .charts__item {
   margin-bottom: 20px;
   padding: 20px;
