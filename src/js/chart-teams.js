@@ -1,7 +1,20 @@
 import * as d3 from 'd3';
 import data from '../data.json';
 
-export default (width, height) => {
+const getWindowWidth = () => window.innerWidth;
+
+const setHeight = bp => getWindowWidth() < bp ? 320 : 400;
+
+const setWidth = (bpMin, bpMax) => {
+  if (getWindowWidth() < bpMin) return 768;
+  if (getWindowWidth() > bpMin - 1 && getWindowWidth() < bpMax) return parseInt(d3.select('#chart-teams').style('width'), 10);
+  if (getWindowWidth() > bpMax - 1) return 1200;
+};
+
+export default () => {
+  let width = setWidth(768, 1300);
+  let height = setHeight(1024);
+
   // need margins for axis
   const margin = {
     top: 20,
@@ -9,8 +22,9 @@ export default (width, height) => {
     bottom: 30,
     left: 40,
   };
-  const innerWidth = width - margin.left - margin.right;
-  const innerHeight = height - margin.top - margin.bottom;
+
+  let innerWidth = width - margin.left - margin.right;
+  let innerHeight = height - margin.top - margin.bottom;
 
   // for ordinal (not quantitative) data use scaleBand()
   const xScale = d3.scaleBand()
@@ -22,6 +36,9 @@ export default (width, height) => {
   const yScale = d3.scaleLinear()
     .domain([0, d3.max(data, d => d.teams)])
     .range([innerHeight, 0]);
+
+  const xAxis = d3.axisBottom(xScale);
+  const yAxis = d3.axisLeft(yScale);
 
   const chart = d3.select('#chart-teams')
     .append('svg')
@@ -36,12 +53,12 @@ export default (width, height) => {
   inner.append('g')
     .attr('class', 'axis axis-x')
     .attr('transform', `translate(0, ${innerHeight})`)
-    .call(d3.axisBottom(xScale));
+    .call(xAxis);
 
   // y axis
   inner.append('g')
     .attr('class', 'axis axis-y')
-    .call(d3.axisLeft(yScale));
+    .call(yAxis);
 
   const bar = inner.selectAll('.bar')
     .data(data)
@@ -59,4 +76,42 @@ export default (width, height) => {
     .attr('y', d => yScale(d.teams) + 3)
     .attr('dy', '-10px')
     .text(d => d.teams);
-};
+
+  let resizeTimeout;
+
+  const resizeChart = () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      width = setWidth(768, 1300);
+      height = setHeight(1024);
+      innerWidth = width - margin.left - margin.right;
+      innerHeight = height - margin.top - margin.bottom;
+
+      xScale.range([0, innerWidth]);
+      yScale.range([innerHeight, 0]);
+
+      d3.select('svg')
+        .attr('width', width)
+        .attr('height', height);
+
+      chart.selectAll('.bar')
+        .attr('transform', d => `translate(${xScale(d.year)}, 0)`);
+
+      chart.selectAll('rect')
+        .attr('y', d => yScale(d.teams))
+        .attr('width', xScale.bandwidth())
+        .attr('height', d => innerHeight - yScale(d.teams));
+
+      chart.selectAll('.bar text')
+        .attr('x', xScale.bandwidth() / 2)
+        .attr('y', d => yScale(d.teams) + 3);
+
+      chart.select('.axis-x')
+        .attr('transform', `translate(0, ${innerHeight})`)
+        .call(xAxis);
+      chart.select('.axis-y').call(yAxis);
+    }, 100);
+  };
+
+  d3.select(window).on('resize', resizeChart);
+}

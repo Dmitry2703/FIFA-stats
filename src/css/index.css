@@ -35,7 +35,7 @@ body {
 }
 
 .charts__container.is-wide {
-  height: 320px;
+  height: 340px;
 }
 
 .charts__svg {
@@ -54,7 +54,13 @@ body {
   }
 
   .charts__item:last-child {
-    flex: 1;
+    flex: 1 auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .charts__container.is-wide {
+    height: 320px;
   }
 }
 
