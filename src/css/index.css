@@ -19,6 +19,7 @@ body {
   border-radius: 10px;
   background-color: #5294b5;
   box-shadow: 1px 1px 4px 0 #3b7196;
+  text-align: center;
 }
 
 .charts__title {
@@ -27,19 +28,23 @@ body {
   text-transform: uppercase;
 }
 
-.charts__container {
-  height: 220px;
+.charts__container.is-wide {
+  height: 340px;
   overflow-y: hidden;
   overflow-x: auto;
   text-align: center;
 }
 
-.charts__container.is-wide {
-  height: 340px;
-}
-
 .charts__svg {
   display: inline-block;
+}
+
+@media screen and (min-width: 480px) and (max-width: 619px) {
+  .charts__container.is-responsive {
+    display: inline-block;
+    width: 380px;
+    height: 380px;
+  }
 }
 
 @media screen and (min-width: 620px) {
@@ -59,13 +64,20 @@ body {
 }
 
 @media screen and (min-width: 768px) {
+  .charts__container.is-responsive {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+  }
+
   .charts__container.is-wide {
     height: 320px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .charts__container {
+  .charts__container.is-responsive {
+    width: 350px;
     height: 350px;
   }
 

@@ -7,8 +7,8 @@ export default (width, height, entity) => {
   const chart = d3.select(`#chart-${entity}s`)
     .append('svg')
       .attr('class', 'charts__svg')
-      .attr('width', width)
-      .attr('height', height);
+      .attr('preserveAspectRatio', 'xMinYMin meet')
+      .attr('viewBox', `0 0 ${width} ${height}`);
 
   const radius = height / 2;
 

@@ -90,7 +90,7 @@ export default () => {
       xScale.range([0, innerWidth]);
       yScale.range([innerHeight, 0]);
 
-      d3.select('svg')
+      d3.select('#chart-teams svg')
         .attr('width', width)
         .attr('height', height);
 
