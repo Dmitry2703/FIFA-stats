@@ -1,11 +1,25 @@
 import drawChartTeams from './chart-teams';
-import drawChartChampions from './chart-champions';
+import drawChartPie from './chart-pie';
 
-const chartTeamsWidth = 500;
-const chartTeamsHeight = 250;
+const drawCharts = () => {
+  let chartPieWidth = 220;
+  let chartPieHeight = 220;
 
-const chartChampionsWidth = 500;
-const chartChampionsHeight = 250;
+  let chartTeamsWidth = 750;
+  let chartTeamsHeight = 300;
 
-drawChartTeams(chartTeamsWidth, chartTeamsHeight);
-drawChartChampions(chartChampionsWidth, chartChampionsHeight);
+  if (window.innerWidth >= 1024) {
+    chartPieWidth = 350;
+    chartPieHeight = 350;
+
+    chartTeamsWidth = 900;
+    chartTeamsHeight = 400;
+  }
+
+  drawChartTeams(chartTeamsWidth, chartTeamsHeight);
+  drawChartPie(chartPieWidth, chartPieHeight, 'champion');
+  drawChartPie(chartPieWidth, chartPieHeight, 'continent');
+}
+
+drawCharts();
+window.addEventListener('resize', drawCharts)

@@ -26,19 +26,17 @@ export default (width, height) => {
   const chart = d3.select('#chart-teams')
     .append('svg')
       .attr('class', 'charts__svg')
-      .attr('preserveAspectRatio', 'xMinYMin meet')
-      .attr('viewBox', `0 0 ${width} ${height}`);
+      .attr('width', width)
+      .attr('height', height);
 
   const inner = chart.append('g')
     .attr('transform', `translate(${margin.left}, ${margin.top})`);
-
-  const xAxisTicks = data.map(d => d.year).filter((year, i) => i % 2 === 0);
 
   // x axis
   inner.append('g')
     .attr('class', 'axis axis-x')
     .attr('transform', `translate(0, ${innerHeight})`)
-    .call(d3.axisBottom(xScale).tickValues(xAxisTicks));
+    .call(d3.axisBottom(xScale));
 
   // y axis
   inner.append('g')

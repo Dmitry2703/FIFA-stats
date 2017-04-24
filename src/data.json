@@ -2,120 +2,140 @@
   {
     "year": "1930",
     "country": "Uruguay",
+    "continent": "South America",
     "teams": "13",
     "champion": "Uruguay"
   },
   {
     "year": "1934",
     "country": "Italy",
+    "continent": "Europe",
     "teams": "16",
     "champion": "Italy"
   },
   {
     "year": "1938",
     "country": "France",
+    "continent": "Europe",
     "teams": "15",
     "champion": "Italy"
   },
   {
     "year": "1950",
     "country": "Brazil",
+    "continent": "South America",
     "teams": "13",
     "champion": "Uruguay"
   },
   {
     "year": "1954",
     "country": "Switzerland",
+    "continent": "Europe",
     "teams": "16",
     "champion": "Germany"
   },
   {
     "year": "1958",
     "country": "Sweden",
+    "continent": "Europe",
     "teams": "16",
     "champion": "Brazil"
   },
   {
     "year": "1962",
     "country": "Chile",
+    "continent": "South America",
     "teams": "16",
     "champion": "Brazil"
   },
   {
     "year": "1966",
     "country": "England",
+    "continent": "Europe",
     "teams": "16",
     "champion": "England"
   },
   {
     "year": "1970",
     "country": "Mexico",
+    "continent": "North America",
     "teams": "16",
     "champion": "Brazil"
   },
   {
     "year": "1974",
     "country": "Germany",
+    "continent": "Europe",
     "teams": "16",
     "champion": "Germany"
   },
   {
     "year": "1978",
     "country": "Argentina",
+    "continent": "South America",
     "teams": "16",
     "champion": "Argentina"
   },
   {
     "year": "1982",
     "country": "Spain",
+    "continent": "Europe",
     "teams": "24",
     "champion": "Italy"
   },
   {
     "year": "1986",
     "country": "Mexico",
+    "continent": "North America",
     "teams": "24",
     "champion": "Argentina"
   },
   {
     "year": "1990",
     "country": "Italy",
+    "continent": "Europe",
     "teams": "24",
     "champion": "Germany"
   },
   {
     "year": "1994",
     "country": "USA",
+    "continent": "North America",
     "teams": "24",
     "champion": "Brazil"
   },
   {
     "year": "1998",
     "country": "France",
+    "continent": "Europe",
     "teams": "32",
     "champion": "France"
   },
   {
     "year": "2002",
     "country": "Corea/Japan",
+    "continent": "Asia",
     "teams": "32",
     "champion": "Brazil"
   },
   {
     "year": "2006",
     "country": "Germany",
+    "continent": "Europe",
     "teams": "32",
     "champion": "Italy"
   },
   {
     "year": "2010",
     "country": "South Africa",
+    "continent": "Africa",
     "teams": "32",
     "champion": "Spain"
   },
   {
     "year": "2014",
     "country": "Brazil",
+    "continent": "South America",
     "teams": "32",
     "champion": "Germany"
   }

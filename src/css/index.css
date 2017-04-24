@@ -28,18 +28,21 @@ body {
 }
 
 .charts__container {
-  position: relative;
-  padding-bottom: 50%;
-  overflow: hidden;
+  height: 220px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  text-align: center;
+}
+
+.charts__container.is-wide {
+  height: 320px;
 }
 
 .charts__svg {
-  position: absolute;
-  top: 0;
-  left: 0;
+  display: inline-block;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 620px) {
   .charts {
     display: flex;
     flex-wrap: wrap;
@@ -48,6 +51,20 @@ body {
 
   .charts__item {
     width: calc(50% - 10px);
+  }
+
+  .charts__item:last-child {
+    flex: 1;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .charts__container {
+    height: 350px;
+  }
+
+  .charts__container.is-wide {
+    height: 400px;
   }
 }
 
@@ -74,13 +91,34 @@ body {
   opacity: 1;
 }
 
-#chart-teams .axis text {
+.charts__svg text,
+.charts__svg .axis text {
   font-size: 12px;
   fill: #fff;
 }
 
-#chart-teams .axis path,
-#chart-teams .axis line {
+.charts__svg .axis path,
+.charts__svg .axis line {
   fill: none;
   stroke: #fff;
+}
+
+.charts__svg .arc {
+  opacity: 0.8;
+  transition: all 0.1s ease-in-out;
+}
+
+.charts__svg .arc:hover {
+  opacity: 1;
+}
+
+#chart-champions text,
+#chart-continents text {
+  opacity: 0;
+  transition: all 0.1s ease-in-out;
+}
+
+#chart-champions .arc:hover text,
+#chart-continents .arc:hover text {
+  opacity: 1;
 }
