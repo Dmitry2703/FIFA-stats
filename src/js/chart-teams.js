@@ -80,8 +80,22 @@ export default () => {
     .attr('y', d => yScale(d.teams))
     .attr('width', xScale.bandwidth())
     .attr('height', d => innerHeight - yScale(d.teams))
-    .on('mouseover', tip.show)
-    .on('mouseout', tip.hide);
+    .on('mouseover', function(d) {
+      d3.select(this)
+        .transition(300)
+        .attr('y', d => yScale(d.teams) - 5)
+        .attr('height', d => innerHeight - yScale(d.teams) + 5);
+
+      tip.show(d);
+    })
+    .on('mouseout', function(d) {
+      d3.select(this)
+        .transition(300)
+        .attr('y', d => yScale(d.teams))
+        .attr('height', d => innerHeight - yScale(d.teams));
+
+      tip.hide(d);
+    });
 
   let resizeTimeout;
 
