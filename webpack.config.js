@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
   entry: [
@@ -8,12 +9,11 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.js',
-    publicPath: 'temp/' // for webpack-dev-server output
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         use: 'babel-loader',
       },
       {
@@ -22,17 +22,14 @@ const config = {
       },
     ]
   },
-  resolve: {
-    alias: {
-      src: path.resolve(__dirname, 'src')
-    }
-  },
-  devtool: "eval",
-  devServer: {
-    contentBase: path.join(__dirname, "dev"),
-    compress: true,
-    port: 9000,
-  }
+  devtool: 'eval',
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: __dirname + '/src/index.html',
+      filename: 'index.html',
+      inject: 'body'
+    })
+  ]
 };
 
 module.exports = config;
