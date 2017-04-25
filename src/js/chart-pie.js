@@ -1,12 +1,12 @@
 import * as d3 from 'd3';
 import d3Tip from "d3-tip";
 import data from '../data.json';
-import { getEntities, getColor } from './helpers';
+import helpers from './helpers';
 
 d3.tip = d3Tip;
 
 export default (width, height, entity) => {
-  const chartData = getEntities(data, entity);
+  const chartData = helpers.getEntities(data, entity);
   const chart = d3.select(`#chart-${entity}s`)
     .append('svg')
       .attr('class', 'charts__svg')
@@ -15,7 +15,7 @@ export default (width, height, entity) => {
 
   const radius = height / 2;
 
-  const colors = chartData.map((item, i) => getColor(i));
+  const colors = chartData.map((item, i) => helpers.getColor(i));
 
   const color = d3.scaleOrdinal()
     .range(colors);

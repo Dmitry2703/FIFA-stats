@@ -4,139 +4,179 @@
     "country": "Uruguay",
     "continent": "South America",
     "teams": "13",
-    "champion": "Uruguay"
+    "champion": "Uruguay",
+    "goals": "70",
+    "games": "18"
   },
   {
     "year": "1934",
     "country": "Italy",
     "continent": "Europe",
     "teams": "16",
-    "champion": "Italy"
+    "champion": "Italy",
+    "goals": "70",
+    "games": "17"
   },
   {
     "year": "1938",
     "country": "France",
     "continent": "Europe",
     "teams": "15",
-    "champion": "Italy"
+    "champion": "Italy",
+    "goals": "84",
+    "games": "18"
   },
   {
     "year": "1950",
     "country": "Brazil",
     "continent": "South America",
     "teams": "13",
-    "champion": "Uruguay"
+    "champion": "Uruguay",
+    "goals": "88",
+    "games": "22"
   },
   {
     "year": "1954",
     "country": "Switzerland",
     "continent": "Europe",
     "teams": "16",
-    "champion": "Germany"
+    "champion": "Germany",
+    "goals": "140",
+    "games": "26"
   },
   {
     "year": "1958",
     "country": "Sweden",
     "continent": "Europe",
     "teams": "16",
-    "champion": "Brazil"
+    "champion": "Brazil",
+    "goals": "126",
+    "games": "35"
   },
   {
     "year": "1962",
     "country": "Chile",
     "continent": "South America",
     "teams": "16",
-    "champion": "Brazil"
+    "champion": "Brazil",
+    "goals": "89",
+    "games": "32"
   },
   {
     "year": "1966",
     "country": "England",
     "continent": "Europe",
     "teams": "16",
-    "champion": "England"
+    "champion": "England",
+    "goals": "89",
+    "games": "32"
   },
   {
     "year": "1970",
     "country": "Mexico",
     "continent": "North America",
     "teams": "16",
-    "champion": "Brazil"
+    "champion": "Brazil",
+    "goals": "95",
+    "games": "32"
   },
   {
     "year": "1974",
     "country": "Germany",
     "continent": "Europe",
     "teams": "16",
-    "champion": "Germany"
+    "champion": "Germany",
+    "goals": "97",
+    "games": "38"
   },
   {
     "year": "1978",
     "country": "Argentina",
     "continent": "South America",
     "teams": "16",
-    "champion": "Argentina"
+    "champion": "Argentina",
+    "goals": "102",
+    "games": "38"
   },
   {
     "year": "1982",
     "country": "Spain",
     "continent": "Europe",
     "teams": "24",
-    "champion": "Italy"
+    "champion": "Italy",
+    "goals": "146",
+    "games": "52"
   },
   {
     "year": "1986",
     "country": "Mexico",
     "continent": "North America",
     "teams": "24",
-    "champion": "Argentina"
+    "champion": "Argentina",
+    "goals": "132",
+    "games": "52"
   },
   {
     "year": "1990",
     "country": "Italy",
     "continent": "Europe",
     "teams": "24",
-    "champion": "Germany"
+    "champion": "Germany",
+    "goals": "115",
+    "games": "52"
   },
   {
     "year": "1994",
     "country": "USA",
     "continent": "North America",
     "teams": "24",
-    "champion": "Brazil"
+    "champion": "Brazil",
+    "goals": "141",
+    "games": "52"
   },
   {
     "year": "1998",
     "country": "France",
     "continent": "Europe",
     "teams": "32",
-    "champion": "France"
+    "champion": "France",
+    "goals": "171",
+    "games": "64"
   },
   {
     "year": "2002",
     "country": "Corea/Japan",
     "continent": "Asia",
     "teams": "32",
-    "champion": "Brazil"
+    "champion": "Brazil",
+    "goals": "161",
+    "games": "64"
   },
   {
     "year": "2006",
     "country": "Germany",
     "continent": "Europe",
     "teams": "32",
-    "champion": "Italy"
+    "champion": "Italy",
+    "goals": "147",
+    "games": "64"
   },
   {
     "year": "2010",
     "country": "South Africa",
     "continent": "Africa",
     "teams": "32",
-    "champion": "Spain"
+    "champion": "Spain",
+    "goals": "145",
+    "games": "64"
   },
   {
     "year": "2014",
     "country": "Brazil",
     "continent": "South America",
     "teams": "32",
-    "champion": "Germany"
+    "champion": "Germany",
+    "goals": "171",
+    "games": "64"
   }
 ]

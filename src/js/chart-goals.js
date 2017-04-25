@@ -11,23 +11,27 @@ const {
   innerWidth,
   innerHeight,
   margin,
-} = helpers.setChartDimensions(d3.select('#chart-teams'));
+} = helpers.setChartDimensions(d3.select('#chart-goals'));
 
 // for ordinal (not quantitative) data use scaleBand()
 const xScale = d3.scaleBand()
   .domain(data.map(d => d.year))
   .range([0, innerWidth])
-  .padding(0.2);
+  .padding(1);
 
 // for quantitative data use scaleLinear()
 const yScale = d3.scaleLinear()
-  .domain([0, d3.max(data, d => d.teams)])
+  .domain([d3.min(data, d => +d.goals) - 10, d3.max(data, d => +d.goals)])
   .range([innerHeight, 0]);
 
 const xAxis = d3.axisBottom(xScale);
 const yAxis = d3.axisLeft(yScale);
 
-const chart = d3.select('#chart-teams')
+const line = d3.line()
+  .x(d => xScale(d.year))
+  .y(d => yScale(d.goals));
+
+const chart = d3.select('#chart-goals')
   .append('svg')
     .attr('class', 'charts__svg')
     .attr('width', width)
@@ -40,16 +44,42 @@ const tip = d3.tip()
   .attr('class', 'd3-tip with-triangle')
   .offset([-20, 0])
   .html(d => {
-    return `<ul>
-        <li>${d.teams} teams</li>
-        <li>Country: <strong>${d.country}</strong></li>
-        <li>Champion: <strong>${d.champion}</strong></li>
-      </ul>`;
+    return `<strong>${d.year}:</strong>
+      <ul>
+        <li>Goals: ${d.goals}</li>
+        <li>Per game: ${parseFloat(d.goals / d.games).toFixed(2)}</li>
+      </ul>`
   });
 
 chart.call(tip);
 
 export default () => {
+  inner.append('path')
+    .attr('class', 'line')
+    .attr('d', line(data));
+
+  inner.selectAll('.dot')
+      .data(data)
+    .enter().append('circle')
+      .attr('class', 'dot')
+      .attr('r', 5)
+      .attr('cx', d => xScale(d.year))
+      .attr('cy', d => yScale(d.goals))
+      .on('mouseover', function(d) {
+        d3.select(this)
+          .transition(300)
+          .attr('r', 7);
+
+        tip.show(d);
+      })
+      .on('mouseout', function(d) {
+        d3.select(this)
+          .transition(300)
+          .attr('r', 5);
+
+        tip.hide(d);
+      });
+
   // x axis
   inner.append('g')
     .attr('class', 'axis axis-x')
@@ -60,43 +90,33 @@ export default () => {
   inner.append('g')
     .attr('class', 'axis axis-y')
     .call(yAxis);
-
-  const bar = inner.selectAll('.bar')
-    .data(data)
-    .enter().append('g')
-      .attr('class', 'bar')
-      .attr('transform', d => `translate(${xScale(d.year)}, 0)`);
-
-  bar.append('rect')
-    .attr('y', d => yScale(d.teams))
-    .attr('width', xScale.bandwidth())
-    .attr('height', d => innerHeight - yScale(d.teams))
-    .on('mouseover', tip.show)
-    .on('mouseout', tip.hide);
 }
 
-export const redrawChartTeams = () => {
+export const redrawChartGoals = () => {
   const {
     width,
     height,
     innerWidth,
     innerHeight,
-  } = helpers.setChartDimensions(d3.select('#chart-teams'));
+  } = helpers.setChartDimensions(d3.select('#chart-goals'));
 
   xScale.range([0, innerWidth]);
   yScale.range([innerHeight, 0]);
 
-  d3.select('#chart-teams svg')
+  d3.select('#chart-goals svg')
     .attr('width', width)
     .attr('height', height);
 
-  chart.selectAll('.bar')
-    .attr('transform', d => `translate(${xScale(d.year)}, 0)`);
+  line
+    .x(d => xScale(d.year))
+    .y(d => yScale(d.goals));
 
-  chart.selectAll('rect')
-    .attr('y', d => yScale(d.teams))
-    .attr('width', xScale.bandwidth())
-    .attr('height', d => innerHeight - yScale(d.teams));
+  d3.select('.line')
+    .attr('d', line(data));
+
+  chart.selectAll('.dot')
+    .attr('cx', d => xScale(d.year))
+    .attr('cy', d => yScale(d.goals));
 
   chart.select('.axis-x')
     .attr('transform', `translate(0, ${innerHeight})`)

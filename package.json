@@ -1,4 +1,7 @@
 {
+  "name": "FIFA-World-Cups-stats",
+  "version": "1.0.0",
+  "author": "Dmitry Meshcheryakov",
   "main": "./src/index.js",
   "scripts": {
     "dev": "webpack-dev-server",
