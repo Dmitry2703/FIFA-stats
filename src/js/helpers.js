@@ -1,4 +1,10 @@
 class Helpers {
+  /**
+   * get derivative data from initial data
+   * @param {Object} data
+   * @param  {string} entity
+   * @return {Array}
+   */
   getEntities(data, entity) {
     const entities = data.reduce((result, item) => {
       if (!result[item[entity]]) {
@@ -18,14 +24,28 @@ class Helpers {
     return dataForChart;
   }
 
+  /**
+   * get different colors for pie charts
+   * @param  {number} i
+   * @return {string}
+   */
   getColor(i) {
     return `hsl(${i * 65}, 75%, 50%)`;
   }
 
+  /**
+   * get window width
+   * @return {number}
+   */
   getWindowWidth() {
     return window.innerWidth;
   }
 
+  /**
+   * set chart height
+   * @param {number} breakpoint
+   * @return {number}
+   */
   setHeight(breakpoint) {
     const MIN_HEIGHT = 320;
     const MAX_HEIGHT = 400;
@@ -34,6 +54,12 @@ class Helpers {
       : MAX_HEIGHT;
   }
 
+  /**
+   * set chart width
+   * @param {number} breakpoint
+   * @param {HTMLElement} selector
+   * @return {number}
+   */
   setWidth(breakpoint, selector) {
     const MIN_WIDTH = 768;
     return this.getWindowWidth() < breakpoint
@@ -41,6 +67,11 @@ class Helpers {
       : parseInt(selector.style('width'), 10);
   }
 
+  /**
+   * set chart dimensions
+   * @param {HTMLElement} selector
+   * @return {Object}
+   */
   setChartDimensions(selector) {
     const WIDTH_BREAKPOINT = 768;
     const HEIGHT_BREAKPOINT = 1024;
@@ -67,6 +98,12 @@ class Helpers {
     };
   }
 
+  /**
+   * throttle function for resize optimisation
+   * @param  {Function} callback
+   * @param  {number} delay
+   * @return {Function}
+   */
   throttle(callback, delay) {
     let timeout;
     return () => {
