@@ -2,7 +2,6 @@ import drawChartPie from './chart-pie';
 import drawChartTeams, { redrawChartTeams } from './chart-teams';
 import drawChartGoals, { redrawChartGoals } from './chart-goals';
 import helpers from './helpers';
-import '../css/index.css';
 
 const CHART_PIE_WIDTH = 250;
 const CHART_PIE_HEIGHT = 250;
