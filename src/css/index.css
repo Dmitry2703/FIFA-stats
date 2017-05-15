@@ -60,6 +60,18 @@ body {
   text-align: center;
 }
 
+.charts__container.is-huge {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.charts__container.is-huge .charts__svg {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .charts__svg {
   display: inline-block;
 }
@@ -83,7 +95,8 @@ body {
     width: calc(50% - 10px);
   }
 
-  .charts__item.is-wide {
+  .charts__item.is-wide,
+  .charts__item.is-huge {
     width: 100%;
   }
 }
@@ -97,6 +110,10 @@ body {
 
   .charts__container.is-wide {
     height: 320px;
+  }
+
+  .charts__container.is-huge {
+    height: 600px;
   }
 }
 
@@ -114,6 +131,10 @@ body {
 @media screen and (min-width: 1600px) {
   .charts__item.is-wide {
     width: calc(50% - 10px);
+  }
+
+  .charts__item.is-huge {
+    width: 100%;
   }
 }
 
@@ -157,6 +178,10 @@ body {
 
 #chart-goals .dot {
   fill: #fff;
+}
+
+#map path {
+  fill: #254e77;
 }
 
 /* d3-tip styles */
