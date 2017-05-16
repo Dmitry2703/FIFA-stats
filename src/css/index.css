@@ -47,6 +47,10 @@ body {
   text-align: center;
 }
 
+.charts__item:last-child {
+  margin-bottom: 0;
+}
+
 .charts__title {
   margin-top: 0;
   text-align: center;
