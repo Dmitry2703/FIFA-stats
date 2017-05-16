@@ -35,12 +35,14 @@ export default (width, height, entity) => {
     .attr('class', 'd3-tip')
     .direction('se')
     .offset([-75, -100])
-    .html(d => {
-      return `<strong>${d.data.entity}, ${d.value} times:</strong>
-        <ul>
-          ${d.data.years.map(year => `<li>${year}</li>`).join('')}
-        </ul>`;
-    });
+    .html(d => (
+      `<strong>
+        ${d.data.entity}, ${d.value} ${d.value === 1 ? 'time' : 'times'}:
+      </strong>
+      <ul>
+        ${d.data.years.map(year => `<li>${year}</li>`).join('')}
+      </ul>`
+    ));
 
   chart.call(tip);
 

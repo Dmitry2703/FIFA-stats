@@ -1,7 +1,7 @@
 class Helpers {
   /**
    * get derivative data from initial data
-   * @param {Object} data
+   * @param {Array} data
    * @param  {string} entity
    * @return {Array}
    */
@@ -96,6 +96,38 @@ class Helpers {
       innerHeight,
       margin: MARGIN,
     };
+  }
+
+  /**
+   * check if country had World Cup
+   * @param  {Array} data
+   * @param  {Object} country
+   * @return {boolean}
+   */
+  didCountryHaveWorldCup(data, country) {
+    const worldCupCountries = data.map(item => item.country);
+    return (
+      worldCupCountries.indexOf(country) !== -1 ||
+      country === 'Japan'|| country === 'South Korea'
+    );
+  }
+
+  /**
+   * get years of World Cup in defined country
+   * @param  {Array} data
+   * @param  {Object} country
+   * @return {Array}
+   */
+  getWorldCupYears(data, country) {
+    const years = [];
+    data.forEach(item => {
+      if ((item.country === country) ||
+          (item.country === 'Corea/Japan' && country === 'Japan' ||
+           item.country === 'Corea/Japan' && country === 'South Korea')) {
+        years.push(item.year);
+      }
+    });
+    return years;
   }
 
   /**

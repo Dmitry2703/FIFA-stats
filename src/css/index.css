@@ -47,6 +47,10 @@ body {
   text-align: center;
 }
 
+.charts__item:last-child {
+  margin-bottom: 0;
+}
+
 .charts__title {
   margin-top: 0;
   text-align: center;
@@ -58,6 +62,18 @@ body {
   overflow-y: hidden;
   overflow-x: auto;
   text-align: center;
+}
+
+.charts__container.is-huge {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.charts__container.is-huge .charts__svg {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .charts__svg {
@@ -83,7 +99,8 @@ body {
     width: calc(50% - 10px);
   }
 
-  .charts__item.is-wide {
+  .charts__item.is-wide,
+  .charts__item.is-huge {
     width: 100%;
   }
 }
@@ -97,6 +114,10 @@ body {
 
   .charts__container.is-wide {
     height: 320px;
+  }
+
+  .charts__container.is-huge {
+    height: 600px;
   }
 }
 
@@ -114,6 +135,10 @@ body {
 @media screen and (min-width: 1600px) {
   .charts__item.is-wide {
     width: calc(50% - 10px);
+  }
+
+  .charts__item.is-huge {
+    width: 100%;
   }
 }
 
@@ -161,6 +186,7 @@ body {
 
 /* d3-tip styles */
 .d3-tip {
+  position: absolute;
   padding: 10px;
   border-radius: 10px;
   background-color: #039be5;
