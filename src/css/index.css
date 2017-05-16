@@ -180,12 +180,9 @@ body {
   fill: #fff;
 }
 
-#map path {
-  fill: #254e77;
-}
-
 /* d3-tip styles */
 .d3-tip {
+  position: absolute;
   padding: 10px;
   border-radius: 10px;
   background-color: #039be5;
